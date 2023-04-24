@@ -13,8 +13,8 @@ function init() {
     const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, Vector3.Zero(), scene);
     camera.attachControl(camera, true);
 
-    const light1 = new HemisphericLight("light1", new Vector3(0, 1, 0), scene);
-    const box = MeshBuilder.CreateBox("box", {}, scene);
+    new HemisphericLight("light1", new Vector3(0, 1, 0), scene);
+    MeshBuilder.CreateBox("box", {}, scene);
 
     window.addEventListener("keydown", (ev) => {
         if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.key === "I") {

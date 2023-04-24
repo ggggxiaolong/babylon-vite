@@ -18,7 +18,7 @@ function init() {
     const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 15, Vector3.Zero(), scene);
     camera.attachControl(camera, true);
 
-    const light1 = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+    new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
     // const box = MeshBuilder.CreateBox("box", { }, scene);
     SceneLoader.ImportMeshAsync("", "https://assets.babylonjs.com/meshes/", "both_houses_scene.babylon", scene).then(
         (result) => {

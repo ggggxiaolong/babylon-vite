@@ -1,5 +1,6 @@
 import { ArcRotateCamera, Engine, HemisphericLight, Scene, SceneLoader, Vector3 } from "@babylonjs/core";
 
+import "@babylonjs/inspector"
 // import "@babylonjs/core/Loading/loadingScreen";
 import "@babylonjs/loaders/glTF";
 // import "@babylonjs/core/Materials/standardMaterial";

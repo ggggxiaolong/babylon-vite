@@ -1,11 +1,5 @@
-import { ArcRotateCamera, Engine, HemisphericLight, Scene, SceneLoader, Vector3 } from "@babylonjs/core";
-
+import { ArcRotateCamera, Engine, HemisphericLight, Scene, MeshBuilder, Vector3, Tools } from "@babylonjs/core";
 import "@babylonjs/inspector"
-// import "@babylonjs/core/Loading/loadingScreen";
-import "@babylonjs/loaders/glTF";
-// import "@babylonjs/core/Materials/standardMaterial";
-// import "@babylonjs/core/Materials/Textures/Loaders/envTextureLoader";
-
 init();
 
 function init() {
@@ -16,12 +10,15 @@ function init() {
     const engine = new Engine(canvas, true);
     const scene = new Scene(engine);
 
-    const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, Vector3.Zero(), scene);
+    const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 25, Vector3.Zero(), scene);
     camera.attachControl(camera, true);
 
-    new HemisphericLight("light1", new Vector3(0, 1, 0), scene);
-    // const box = MeshBuilder.CreateBox("box", { }, scene);
-    SceneLoader.ImportMeshAsync("box", "./meshes/", "box.glb", scene);
+    new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+    const box = MeshBuilder.CreateBox("box", {}, scene);
+    box.scaling = new Vector3(2,4,3);
+    box.position = new Vector3(-2, 2, 1);
+    box.rotation.y = Tools.ToRadians(45);
+    MeshBuilder.CreateGround("ground", { width: 10, height: 10 });
 
     window.addEventListener("keydown", (ev) => {
         if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.key === "I") {

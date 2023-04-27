@@ -1,5 +1,6 @@
 import { ArcRotateCamera, Engine, HemisphericLight, MeshBuilder, Scene, Vector3 } from "@babylonjs/core";
 
+import "@babylonjs/inspector"
 init();
 
 function init() {

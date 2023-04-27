@@ -133,3 +133,12 @@ button:focus-visible {
     padding: 20px 30px;
     border-bottom: 3px solid #2b3035;
 }
+
+#instructions {
+  position: absolute;
+  top: 0;
+  /* width: 100%; */
+  padding: 8px;
+  background: #2b3035;
+  color: #fff;
+}

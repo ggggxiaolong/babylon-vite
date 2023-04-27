@@ -1,5 +1,4 @@
 import { NAMES } from "./main";
-// console.log(NAMES.keys());
 const table = document.createElement("table");
 table.className = "table"
 let index = 0;
@@ -9,7 +8,11 @@ for(let key of NAMES.keys()){
     // console.log(key);
     const td = document.createElement("td");
     const a = document.createElement("a");
-    a.href = `?q=${key}`;
+    if(NAMES.get(key) === "html"){
+        a.href = `${key}.html`;
+    } else {
+        a.href = `?q=${key}`;
+    }
     a.textContent = key;
     td.appendChild(a);
     tr.appendChild(td);

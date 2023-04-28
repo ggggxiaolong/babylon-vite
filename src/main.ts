@@ -15,7 +15,19 @@ export const NAMES: Map<string, string> = new Map([
     ["copyMeshes", "chapter-2"],
     ["chapter-2-camera", "html"],
     ["webLayout", "chapter-2"],
-    
+    ["meshParents", "chapter-3"],
+    ["car", "chapter-3"],
+    ["carMesh", "chapter-3"],
+    ["wheelAnimation", "chapter-3"],
+    ["carAnimation", "chapter-3"],
+    ["characterAnimation", "chapter-3"],
+    ["movePov", "chapter-3"],
+    ["walkAround", "chapter-3"],
+    ["avoidCollisions", "chapter-4"],
+    ["hills", "chapter-5"],
+    ["combineHills", "chapter-5"],
+    ["skiesAbove", "chapter-5"],
+    ["tree", "chapter-5"],
 ])
 // console.log(path);
 if(query){
@@ -26,6 +38,15 @@ if(query){
             break;
         case "chapter-2":
             import(`./chapter-2/${query}.ts`);
+            break;
+        case "chapter-3":
+            import(`./chapter-3/${query}.ts`);
+            break;
+        case "chapter-4":
+            import(`./chapter-4/${query}.ts`);
+            break;
+        case "chapter-5":
+            import(`./chapter-5/${query}.ts`);
             break;
         default: 
         import('./home');

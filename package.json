@@ -12,9 +12,11 @@
   "devDependencies": {
     "@babylonjs/core": "^6.0.0",
     "@babylonjs/inspector": "^6.0.0",
+    "@types/earcut": "^2.1.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.3"
   },
   "dependencies": {
+    "earcut": "^2.2.4"
   }
 }

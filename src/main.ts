@@ -28,6 +28,9 @@ export const NAMES: Map<string, string> = new Map([
     ["combineHills", "chapter-5"],
     ["skiesAbove", "chapter-5"],
     ["tree", "chapter-5"],
+    ["latheMesh", "chapter-6"],
+    ["particleSpray", "chapter-6"],
+    ["switchEvent", "chapter-6"],
 ])
 // console.log(path);
 if(query){
@@ -47,6 +50,9 @@ if(query){
             break;
         case "chapter-5":
             import(`./chapter-5/${query}.ts`);
+            break;
+        case "chapter-6":
+            import(`./chapter-6/${query}.ts`);
             break;
         default: 
         import('./home');

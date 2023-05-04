@@ -1,4 +1,4 @@
-import { Scene, Mesh, DynamicTexture, MeshBuilder, StandardMaterial, Color3, Vector3 } from "@babylonjs/core";
+import { Scene, Mesh, DynamicTexture, MeshBuilder, StandardMaterial, Color3, Vector3, SceneSerializer } from "@babylonjs/core";
 
 export function showAxis(size: number, scene: Scene) {
     function makeTextPlane(text: string, color: string, size: number): Mesh {
@@ -64,4 +64,31 @@ export function showAxis(size: number, scene: Scene) {
     axisZ.color = new Color3(0, 0, 1);
     const zChar = makeTextPlane("Z", "blue", size / 10);
     zChar.position = new Vector3(0, 0.05 * size, 0.9 * size);
+}
+
+var objectUrl: string;
+export function doDownload(filename: string, mesh: Mesh) {
+    if (objectUrl) {
+        window.URL.revokeObjectURL(objectUrl);
+    }
+
+    var serializedScene = SceneSerializer.SerializeMesh(mesh, true, true);
+
+    var strMesh = JSON.stringify(serializedScene);
+
+    if (filename.toLowerCase().lastIndexOf(".babylon") !== filename.length - 8 || filename.length < 9) {
+        filename += ".babylon";
+    }
+
+    var blob = new Blob([strMesh], { type: "octet/stream" });
+
+    // turn blob into an object URL; saved as a member, so can be cleaned out later
+    objectUrl = (window.webkitURL || window.URL).createObjectURL(blob);
+
+    var link = window.document.createElement("a");
+    link.href = objectUrl;
+    link.download = filename;
+    var click = document.createEvent("MouseEvents");
+    click.initEvent("click", true, false);
+    link.dispatchEvent(click);
 }
